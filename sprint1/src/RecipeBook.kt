@@ -12,7 +12,7 @@ data class Recipe(
     val ingredients: List<Ingredient> // List of ingredients for the recipe
 )
 
-fun main() {
+fun RecipeBook() {
     // recipes with ingredients and a spot to add details
     val recipes = listOf(
         Recipe(
