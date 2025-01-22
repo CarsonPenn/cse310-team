@@ -1,5 +1,6 @@
 fun main() {
-    val recipes = getRecipesList()
+    var recipesList = RecipesList()
+    val recipes = recipesList.getRecipesList()
 
     var continueProgram = true
 
@@ -20,8 +21,10 @@ fun main() {
             continueProgram = false
         } else if (choice in 1..recipes.size) {
             val selectedRecipe = recipes[choice!! - 1]
-            val ingredients = getIngredients(selectedRecipe)
-            val instructions = getInstructions(selectedRecipe)
+            var ingredient = Ingredient()
+            var instruction = Instructions()
+            val ingredients = ingredient.getIngredients(selectedRecipe)
+            val instructions = instruction.getInstructions(selectedRecipe)
 
             println("\nRecipe: $selectedRecipe")
             print("\nDetail:")

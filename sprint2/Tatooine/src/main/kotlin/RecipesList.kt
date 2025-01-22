@@ -1,3 +1,5 @@
-fun getRecipesList(): List<String> {
-    return listOf("Spaghetti", "Pancakes", "Salad")
+class RecipesList () {
+    fun getRecipesList(): List<String> {
+        return listOf("Spaghetti", "Pancakes", "Salad")
+    }
 }
