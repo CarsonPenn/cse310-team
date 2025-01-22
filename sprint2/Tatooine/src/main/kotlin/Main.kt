@@ -1,5 +1,5 @@
 fun main() {
-    var recipesList = RecipesList()
+    val recipesList = RecipesList()
     val recipes = recipesList.getRecipesList()
 
     var continueProgram = true
@@ -21,13 +21,28 @@ fun main() {
             continueProgram = false
         } else if (choice in 1..recipes.size) {
             val selectedRecipe = recipes[choice!! - 1]
-            var ingredient = Ingredient()
-            var instruction = Instructions()
+            val ingredient = Ingredient()
+            val instruction = Instructions()
             val ingredients = ingredient.getIngredients(selectedRecipe)
             val instructions = instruction.getInstructions(selectedRecipe)
 
             println("\nRecipe: $selectedRecipe")
-            print("\nDetail:")
+
+            // Fetch and display recipe details
+            val details = Detail.getDetails(selectedRecipe)
+            if (details != null) {
+                println("\nDetails:")
+                println("- Category: ${details.category}")
+                println("- Rating: ${details.rating}")
+                println("- Preparation Time: ${details.prepTime} minutes")
+                println("- Cooking Time: ${details.cookTime} minutes")
+                println("- Total Time: ${details.totalTime} minutes")
+                println("- Gluten Free: ${if (details.glutenFree) "Yes" else "No"}")
+                println("- Vegan: ${if (details.vegan) "Yes" else "No"}")
+            } else {
+                println("No details available for this recipe.")
+            }
+
             println("\nIngredients:")
             ingredients.forEach {
                 println("- ${it.quantity} ${it.unit} of ${it.name}")

@@ -1,16 +1,45 @@
 data class Detail(
-    val prepTime: String,
-    val cookTime: String,
-    val totalTime: String,
+    val category: String,  // For example, "Main" or "Dessert"
+    val rating: Double,    // For example, 4.5
+    val prepTime: Double,  // In minutes
+    val cookTime: Double,  // In minutes
+    val totalTime: Double, // In minutes
     val glutenFree: Boolean,
     val vegan: Boolean
 ) {
-    fun displayRecipeDetails(detail: Detail) {
-        println("\nRecipe Details:")
-        println("Preparation Time: ${detail.prepTime}")
-        println("Cooking Time: ${detail.cookTime}")
-        println("Total Time: ${detail.totalTime}")
-        println("Gluten Free: ${if (detail.glutenFree) "Yes" else "No"}")
-        println("Vegan: ${if (detail.vegan) "Yes" else "No"}")
+    companion object {
+        fun getDetails(recipeName: String): Detail? {
+            return when (recipeName) {
+                "Spaghetti" -> Detail(
+                    category = "Main",
+                    rating = 4.5,
+                    prepTime = 10.0,
+                    cookTime = 20.0,
+                    totalTime = 30.0,
+                    glutenFree = true,
+                    vegan = true
+                )
+                "Pancakes" -> Detail(
+                    category = "Breakfast",
+                    rating = 4.0,
+                    prepTime = 15.0,
+                    cookTime = 10.0,
+                    totalTime = 25.0,
+                    glutenFree = false,
+                    vegan = false
+                )
+//                BLANK TO USE FOR ADDING IN RECIPE DETAILS
+//                " NAME" -> Detail(
+//                    category = "",
+//                    rating = .0,
+//                    prepTime = .0,
+//                    cookTime = .0,
+//                    totalTime = .0,
+//                    glutenFree = false,
+//                    vegan = false
+//                )
+                else -> null
+            }
+        }
     }
 }
