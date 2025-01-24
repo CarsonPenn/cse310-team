@@ -10,7 +10,7 @@ fun main() {
 
         // Display the recipe list
         recipes.forEachIndexed { index, recipe ->
-            println("${index + 1}. $recipe")
+            println("${index + 1}. ${recipe.name}") // Assuming Recipe has a 'name' property
         }
 
         // Get user's choice
@@ -23,13 +23,13 @@ fun main() {
             val selectedRecipe = recipes[choice!! - 1]
             val ingredient = Ingredient()
             val instruction = Instructions()
-            val ingredients = ingredient.getIngredients(selectedRecipe)
-            val instructions = instruction.getInstructions(selectedRecipe)
+            val ingredients = ingredient.getIngredients(selectedRecipe) // Pass the Recipe object
+            val instructions = instruction.getInstructions(selectedRecipe) // Pass the Recipe object
 
-            println("\nRecipe: $selectedRecipe")
+            println("\nRecipe: ${selectedRecipe.name}") // Assuming Recipe has a 'name' property
 
             // Fetch and display recipe details
-            val details = Detail.getDetails(selectedRecipe)
+            val details = Detail.getRecipeDetail(selectedRecipe.name) // Pass the recipe name as a String
             if (details != null) {
                 println("\nDetails:")
                 println("- Category: ${details.category}")
