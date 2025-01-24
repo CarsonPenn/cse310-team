@@ -58,3 +58,13 @@ fun main() {
     }
 }
 
+//Contribution Comments :)
+//Ben -
+
+//Peter -
+
+//Lauren -
+
+//Carson - Worked on compiling the files together, standardizing variable/function names. Worked on RecipeList.kt
+// to compile the three components of the overall recipe, ingredients, details, and instructions.
+// Helped out with Main menu and how it will loop through the program etc.
