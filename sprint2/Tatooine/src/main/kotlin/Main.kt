@@ -6,7 +6,9 @@ fun main() {
 
     while (continueProgram) {
         println("Welcome to the Recipe Book!")
+        println("")
         println("Choose a recipe by entering the number, or enter 0 to quit:")
+        println("")
 
         // Display the recipe list
         recipes.forEachIndexed { index, recipe ->
@@ -30,18 +32,14 @@ fun main() {
 
             // Fetch and display recipe details
             val details = Detail.getRecipeDetail(selectedRecipe.name) // Pass the recipe name as a String
-            if (details != null) {
-                println("\nDetails:")
-                println("- Category: ${details.category}")
-                println("- Rating: ${details.rating}")
-                println("- Preparation Time: ${details.prepTime} minutes")
-                println("- Cooking Time: ${details.cookTime} minutes")
-                println("- Total Time: ${details.totalTime} minutes")
-                println("- Gluten Free: ${if (details.glutenFree) "Yes" else "No"}")
-                println("- Vegan: ${if (details.vegan) "Yes" else "No"}")
-            } else {
-                println("No details available for this recipe.")
-            }
+            println("\nDetails:")
+            println("- Category: ${details.category}")
+            println("- Rating: ${details.rating}")
+            println("- Preparation Time: ${details.prepTime} minutes")
+            println("- Cooking Time: ${details.cookTime} minutes")
+            println("- Total Time: ${details.totalTime} minutes")
+            println("- Gluten Free: ${if (details.glutenFree) "Yes" else "No"}")
+            println("- Vegan: ${if (details.vegan) "Yes" else "No"}")
 
             println("\nIngredients:")
             ingredients.forEach {
